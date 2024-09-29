@@ -4,7 +4,7 @@ author: 01
 date: 2024-04-12
 categories: [linux, go]
 tags: [go, linux, scratch]
-media_subpath: /assets/posts/001-distGo
+media_subpath: /assets/media_posts/001-distGo
 publisehd: true
 ---
 
