@@ -4,6 +4,7 @@ author: 01
 date: 2024-04-12
 categories: [linux, go]
 tags: [go, linux, scratch]
+publisehd: true
 ---
 
 Na minha humilde opinião, um dos motivos que fazem programar em Go ser tão bom é a possibilidade de gerar um binário para execução com a facilidade de um go build .no terminal.
