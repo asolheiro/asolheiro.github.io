@@ -42,7 +42,7 @@ func main() {
 
 que após compilado rende um arquivo binário de miseráveis 6.8 MB, 
 
->![imagem001](./media_posts/001-distGo/imagem001.jpg)
+>![imagem001](/_posts/media_posts/001-distGomedia_posts/001-distGo/imagem001.jpg)
 >***Figura 01: Código-fonte main.go e seu binário, main, resultante***
 
 os quais ainda podemos reduzir mais se utilizarmos linker flags — que se comunicam direto com o linker, ferramenta que é responsável por vincular o código-fonte ao binário. Esse assunto rende uma discussão inteira, então não alongaremos mais.
@@ -61,7 +61,7 @@ $ go build -ldflags="-s -w"
 
 e nos permite reduzir nosso binário em 2.8MB, ou cerca de 16%, neste caso (há situações em que esse número pode ser maior).
 
->![imagem002](./media_posts/001-distGo/imagem002.jpg)
+>![imagem002](/_posts/media_posts/001-distGomedia_posts/001-distGo/imagem002.jpg)
 >***Figura 02: Tamanho do código-fonte e do binário resultante usando as linker flags***
 
 Vale salientar, também, que Go naturalmente cria binários compatíveis com a máquina em que estamos compilamos o código, mas isso não nos impede de fazer alterações visando resultados feitos para rodar em outros tipos sistemas operacionais e arquiteturas.
@@ -95,7 +95,7 @@ CMD ["./main"]
 ```
 para criar a imagem com `docker buildx build -t go-golang .` de 898 MB. Essa imagem será nossa base de comparação para os outros experimentos.
 
->![imagem003](./media_posts/001-distGo/imagem003.jpg)
+>![imagem003](/_posts/media_posts/001-distGomedia_posts/001-distGo/imagem003.jpg)
 >***Figura 03: No terminal, docker image ls***
 Só que, se compreendermos que para rodar o binário não precisamos do compilador em si, mas só do kernel linux, podemos utilizar de técnicas de construção de imagens em Docker para otimizar ainda mais os recursos gastos por nossa imagem.
 
@@ -133,17 +133,17 @@ CMD ["./main"]
 
 Construindo essa imagem com `docker buildx build -t go-ubuntu .` já temos uma boa diferença no recurso utilizado. Uma imagem mais de 10 vezes menor: 87.5 MB.
 
->![imagem004](./media_posts/001-distGo/imagem004.jpg)
+>![imagem004](/_posts/media_posts/001-distGomedia_posts/001-distGo/imagem004.jpg)
 >***Figura 04: No terminal, docker image ls***
 
 E seguindo nessa linha podemos comprimir ainda mais nossa imagem. Usando `alpine:latest`, uma imagem base muito conhecida por quem costuma reduzir o tamanho dos containers, temos 17 MB.
 
->![imagem005](./media_posts/001-distGo/imagem005.jpg)
+>![imagem005](/_posts/media_posts/001-distGomedia_posts/001-distGo/imagem005.jpg)
 >***Figura 05: No terminal, docker image ls***
 
 Ou, se quisermos esticar ainda mais a corda, podemos usar `scratch`, que basicamente é uma “imagem” linux mínima, vazia, que contém nenhum binário, biblioteca ou qualquer outra coisa, essa “distro” é muito comum quando queremos rodar um único binário. O resultado é uma imagem de 9.59 MB.
 
->![imagem006](./media_posts/001-distGo/imagem006.jpg)
+>![imagem006](/_posts/media_posts/001-distGomedia_posts/001-distGo/imagem006.jpg)
 >***Figura 06: No terminal, docker image ls***
 
 Dessa maneira, conseguimos reduzir ainda mais o espaço ocupado pela nossa imagem. Nesse caso, uma imagem quase 94 vezes menor! Uma redução absurda.
@@ -178,7 +178,7 @@ Essa forma de escrever nossos containers levanta muitos outros assuntos que pode
 
 Podemos fazer várias verificações dentro desse tema, mas aqui temos um demonstrativo usando o Docker Scout, que já vem pré-instalado com o próprio Docker, para checar as CVE’s (Common Vulnerabilities and Exposures) da nossa imagem: 6 pacotes instalados e nenhuma vulnerabilidade conhecida.
 
->![imagem007](./media_posts/001-distGo/imagem007.jpg)
+>![imagem007](/_posts/media_posts/001-distGomedia_posts/001-distGo/imagem007.jpg)
 >***Figura 07: No terminal, docker install para a imagem “go-scratch”***
 
 Até agora vimos só as vantagens de trabalhar dessa maneira e, obviamente, não são só rosas nessa área.
