@@ -1,6 +1,6 @@
 ---
 title: 01. Kubernetes, primeiros passos e primeiras informações
-author: 01
+author: 1
 date: 2024-04-12
 categories: [kubernetes, docker]
 tags: [containers, kubernetes, docker, linux]
