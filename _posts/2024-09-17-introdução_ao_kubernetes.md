@@ -1,6 +1,6 @@
 ---
 title: 01. Kubernetes, primeiros passos e primeiras informações
-author: 1
+author: Armando Solheiro
 date: 2024-04-12
 categories: [kubernetes, docker]
 tags: [containers, kubernetes, docker, linux]
